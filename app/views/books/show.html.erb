@@ -1,0 +1,12 @@
+<% flash.each do |key, value| %>
+  <div class="flash"<%= key %>>
+    <%= value %>
+<% end %>
+
+<p>Title: <%= @book.title %></p>
+<p>Opinion: <%= @book.opinion %></p>
+
+  <span>
+    <%= link_to 'Edit', edit_book_path(@book.id) %> &nbsp;|
+    <%= link_to 'Back', "/books" %>
+  </span>
