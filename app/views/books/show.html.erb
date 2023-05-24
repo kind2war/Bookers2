@@ -1,3 +1,8 @@
+<%= render 'users/user', user: @user %>
+<%= render 'books/book', collection: @books %>
+
+<h1>Book detail</h1>
+
 <% flash.each do |key, value| %>
   <div class="flash"<%= key %>>
     <%= value %>
@@ -8,5 +13,5 @@
 
   <span>
     <%= link_to 'Edit', edit_book_path(@book.id) %> &nbsp;|
-    <%= link_to 'Back', "/books" %>
+    <%= link_to 'Back'%>
   </span>

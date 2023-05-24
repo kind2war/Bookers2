@@ -1,0 +1,8 @@
+<!--本の新規投稿ができるようにしたい-->
+<%= form_with model: books do |f| %>
+  <span>Title</span></br>
+    <%= f.text_field :title  %></br>
+  <span>opinion</span></br>
+    <%= f.text_area :opinion  %></br>
+    <%= f.submit 'Create Books'%>
+<% end %>

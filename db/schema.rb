@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_014944) do
     t.string "title"
     t.string "opinion"
     t.integer "user_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 2023_05_22_014944) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "introduction"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,8 +1,9 @@
-<h1>IndexページのBooks</h1>
-<p>books/index.html.erb</p>
-<p>ログイン中のﾕｰｻﾞｰが投稿したﾃﾞｰﾀを一覧にしたい</p>
-<%= render 'users/user', user: @user %>
-<%= render 'books/book', collection: @books %>
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<%= render 'user', user: @user %>
+<!--新規投稿のテンプレを置きたい-->
+<!--#<!%= render 'books/new', books: @books %>-->
 
 <table>
   <thead>
@@ -13,14 +14,14 @@
     </tr>
   </thead>
   <tbody>
+  <% @books.each do |book| %>
     <tr>
-      <% @books.each do |book| %>
       <td><%= book.title %></td>
       <td><%= book.opinion%></td>
       <td><%= link_to 'Show', book_path(book.id) %></td>
       <td><%= link_to 'Edit', edit_book_path(book.id) %></td>
       <td><%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
     </tr>
-      <% end %>
+  <% end %>
   </tbody>
 </table>
