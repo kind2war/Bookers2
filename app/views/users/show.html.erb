@@ -1,8 +1,17 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<%= render 'user', user: @user %>
+<!--ﾕｰｻﾞｰのインフォ-->
+<h1>User Info</h1>
+  <h2><%= @user.name %></h2>
+  <%= image_tag @user.get_profile_image(100,100) %>
+    <% if @user.id == current_user.id %>
+      <p><%= link_to "プロフィール編集", edit_user_path(@user.id)%></p>
+    <% end %>
+    
 <!--新規投稿のテンプレを置きたい-->
+
+
 <!--#<!%= render 'books/new', books: @books %>-->
 
 <table>
