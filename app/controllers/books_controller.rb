@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   #投稿データの作成
   def new
-    @book = Book.new(params[:id])
+    @book = Book.new
   end
 
   #投稿データの保存

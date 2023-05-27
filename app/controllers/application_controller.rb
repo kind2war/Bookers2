@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource) #サインイン後どこへ遷移するか設定できるメソッド
-    users_url
+    mypage_path(resource)
   end
 
   def after_sign_out_path_for(resource)
