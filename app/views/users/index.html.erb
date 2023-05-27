@@ -1,21 +1,35 @@
-<h3>Users</h3>
-<p>このページには、ユーザーの一覧が表示されている。</p>
-<table>
-  <thead>
-    <tr>
-      <th width="360px">image</th>
-      <th width="360px">name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-    <!--  %= image_tag @users.get_image % -->
-      <td><%= image_tag user.get_profile_image(100,100)  %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to 'Show', user_path(user.id) %></td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
+<div class= "container px-5 px-sm-0">
+<div class = "row w-100">
+  <!--ｻｲﾄﾞﾊﾞｰ-->
+  <%= render partial: 'shared/sidebar', locals: { user: @user } %>
+  <%#= render partial: 'shared/new_book', locals: { books : @books } %>
+
+
+  <!--メインコンテンツ-->
+  <div class="col-md-8 offset-1 px-sm-15">
+    <div class="user_index">
+    <h2>Users</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th class="w-25 p-3">image</th>
+            <th class="w-75 p-3">name</th>
+            <th></th>
+            <!--th colspan="3"></th -->
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+          <!--  %= image_tag @users.get_image % -->
+            <td><%= image_tag user.get_profile_image(100,100)  %></td>
+            <td>#ﾕｰｻﾞｰﾈｰﾑ<%#= user.name %></td>
+            <td><%= link_to 'Show', user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

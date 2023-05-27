@@ -1,0 +1,20 @@
+<div class="col-3">
+  <h2>User Info</h2>
+    <%#= image_tag user.get_profile_image(100,100) %>
+    <p>ﾕｰｻﾞｰの画像</p>
+    <table class="table">
+      <tbody><tr></tr>
+      <tr>
+    	  <th>name</th>
+    	  <th>ﾕｰｻﾞｰﾈｰﾑ<%#= user.name %></th>
+      </tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th></th>
+      </tr>
+      </tbody>
+    </table>
+        <%# if user.id == current_user.id %>
+          <p><%#= link_to "プロフィール編集", edit_user_path(user.id)%></p>
+        <%# end %>
+</div>

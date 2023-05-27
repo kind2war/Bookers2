@@ -8,9 +8,6 @@
     </ul>
 <% end %>
 
-
-
-
 <%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
   <span>Title</span></br>
   <%= f.text_field :title %></br>
