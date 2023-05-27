@@ -1,5 +1,4 @@
-<div class="col-3">
-<h2>New Books</h2>
+
 <!--
 <%#= form_with model: book, url: confirm_posts_path, html: { method: :post }, local: true do |f| %>
   <%# if book.errors.any? %>
@@ -11,19 +10,21 @@
       </ul>
   <%# end %>
 -->
-    <div class="create">
-      <%= form_with model: books.each do |f| %>
-      <div>
-        <%= f.label :Title %>
-        <%= f.text_field :title  %>
-      </div>
-      <div>
-        <%= f.label :opinion %>
-        <%= f.text_area :opinion %></br>
-      </div>
-        <%= f.submit 'Create Books'%>
+<div class="col-3">
+<h2>New Book</h2>
+  <div class="create">
+    <%= form_with model: books do |f| %>
+    <div>
+      <%= f.label :Title %>
+      <%= f.text_field :title  %>
     </div>
-  <% end %>
+    <div>
+      <%= f.label :Opinion %>
+      <%= f.text_area :opinion %></br>
+    </div>
+      <%= f.submit 'Create Books'%>
+  </div>
+    <% end %>
 <!--
 <#% end %>
 -->

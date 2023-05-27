@@ -1,8 +1,14 @@
-<h1>New Book</h1>
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :opinion %>
-    <%= f.submit 'Create Book' %>
-  <% end %>
+<h2>New Book</h2>
+  <div class="create">
+    <%= form_with model: @books do |f| %>
+    <div>
+      <%= f.label :Title %>
+      <%= f.text_field :title  %>
+    </div>
+    <div>
+      <%= f.label :Opinion %>
+      <%= f.text_area :opinion %></br>
+    </div>
+      <%= f.submit 'Create Books'%>
+  </div>
+    <% end %>
