@@ -11,9 +11,9 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice]="Book was successfully created !"
-      redirect_to book_path(@book.id)
+      redirect_to book_path
     else
-      @books = Book.all
+      #@books = Book.all
       render :new
     end
   end
@@ -25,6 +25,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    #@user = @book.user(user.id) #なんとか、Userモデルのメソッドを、Bookモデルにも導入して、viewさせたい。
   end
 
   def edit
