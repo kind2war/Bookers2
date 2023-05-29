@@ -1,13 +1,17 @@
+
+
 <div class= "container px-5 px-sm-0">
 <div class = "row w-100">
   <!--ｻｲﾄﾞﾊﾞｰ-->
+<div class = "col-md-3">
   <!--user_controllerで定義があるので、sidebarのUserInfoは上手く機能している。-->
-  <%= render partial: 'shared/sidebar', locals: { user: @user } %>
-  <%#= render partial: 'shared/new_book', locals: { books : @books } %>
-
+    <%= render partial: 'shared/sidebar', locals: { user: @user } %>
+  <!--がしかし、NewBookが上手く実装できずに、手ごわい。-->
+    <%= render partial: 'shared/new_book', locals: { book: @book, books: @books} %>
+</div>
 
   <!--メインコンテンツ-->
-  <div class="col-md-8 offset-1 px-sm-15">
+  <div class="col-md-9"> <!--col-md-8 offset-1 px-sm-15-->
   <div class="user_books">
   <h2>Books</h2>
     <table class="table table-hover table-inverse">

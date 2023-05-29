@@ -2,9 +2,8 @@
 <div class = "row w-100">
 
   <!--ｻｲﾄﾞﾊﾞｰ-->
-  <%#= render partial: 'shared/sidebar', locals: { user: @user } %>
-  <%#= render partial: 'shared/new_book', locals: { books : @books } %>
-
+    <%= render partial: 'shared/sidebar', locals: { user: @user } %>
+    <%= render partial: 'shared/new_book', locals: { book: @book, books: @books  } %>
 
   <!--メインコンテンツ-->
   <div class="col-md-8 offset-1 px-sm-15">

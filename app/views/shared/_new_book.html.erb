@@ -1,4 +1,3 @@
-
 <!--
 <%#= form_with model: book, url: confirm_posts_path, html: { method: :post }, local: true do |f| %>
   <%# if book.errors.any? %>
@@ -10,10 +9,10 @@
       </ul>
   <%# end %>
 -->
-<div class="col-3">
+<div>
 <h2>New Book</h2>
   <div class="create">
-    <%= form_with model: books do |f| %>
+    <%= form_with model: book do |f| %>　<!--部分テンプレ化する上で、User#showで表示させるには一体どうしたら・・・-->
     <div>
       <%= f.label :Title %>
       <%= f.text_field :title  %>
