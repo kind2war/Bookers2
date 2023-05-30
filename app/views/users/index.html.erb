@@ -9,20 +9,21 @@
   <div class="col-md-9"> <!--col-md-8 offset-1 px-sm-15-->
     <div class="user_index">
     <h2>Users</h2>
-      <table class="table table-hover table-inverse">
-        <thead>
+      <table class="table table-hover table-inverse" width="100%;" >
+      <thead>
           <tr>
-            <th class="w-25 p-3">image</th>
-            <th class="w-75 p-3">name</th>
-            <th></th>
-            <!--th colspan="3"></th -->
+            <th width="10%">Image</th>
+            <th width="10%">Name</th>
+            <th width="70%">Introdution</th>
+            <th width="10%"></th>
           </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag user.get_profile_image(100,100)  %></td>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
             <td><%= user.name %></td>
+            <td><%= user.introduction %></td>
             <td><%= link_to 'Show', user_path(user.id) %></td>
           </tr>
           <% end %>
