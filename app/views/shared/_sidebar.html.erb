@@ -22,14 +22,15 @@
   <div class="new_book">
     <h2>New Book</h2>
       <div class="create">
-        <%= form_with model: book do |f| %>　<!--部分テンプレ化する上で、User#showで表示させるには一体どうしたら・・・-->
+
+        <%= form_with model: Book.new do |f| %>
         <div>
           <%= f.label :Title %>
-          <%= f.text_field :title  %>
+          <%= f.text_field :title, placeholder:"本のタイトル"   %>
         </div>
         <div>
           <%= f.label :Opinion %>
-          <%= f.text_area :opinion %></br>
+          <%= f.text_area :opinion, placeholder:"感想など" %></br>
         </div>
           <%= f.submit 'Create Books'%>
       </div>

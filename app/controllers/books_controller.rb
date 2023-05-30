@@ -8,12 +8,11 @@ class BooksController < ApplicationController
   #投稿データの保存
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    if @book.save
+    @book.user = current_user
+    if @book.save #!
       flash[:notice]="Book was successfully created !"
-      redirect_to book_path
+      redirect_to books_path()
     else
-      #@books = Book.all
       render :new
     end
   end
@@ -25,8 +24,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
-    @user = @book.user
+    @books = Book.find(params[:id])
+    @user = @books.user
   end
 
   def edit
