@@ -3,7 +3,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
-    @books = Book.all
+    @books = Book.page(params[:page]) #ページネーション機能
     @books = @user.books
     @book = Book.new
   end
@@ -19,7 +19,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]) #ページネーション機能
     @user = current_user
   end
 

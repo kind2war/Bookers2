@@ -23,7 +23,7 @@
     <h2>New Book</h2>
       <div class="create">
 
-        <%= form_with model: Book.new do |f| %>
+        <%= form_with model: Book.new do |f| %> <!--具体的にモデル名を指名することで解決-->
         <div>
           <%= f.label :Title %>
           <%= f.text_field :title, placeholder:"本のタイトル"   %>
