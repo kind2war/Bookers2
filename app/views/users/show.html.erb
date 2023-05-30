@@ -2,10 +2,7 @@
   <div class = "row w-100">
     <!--ｻｲﾄﾞﾊﾞｰ-->
   <div class = "col-md-3">
-    <!--user_controllerで定義があるので、sidebarのUserInfoは上手く機能している。-->
       <%= render partial: 'shared/sidebar', locals: { user: @user, book: @book, books: @books } %>
-    <!--がしかし、NewBookが上手く実装できずに、手ごわい。-->
-      <%#= render partial: 'shared/new_book', locals: { book: @book, books: @books} %>
   </div>
 
     <!--メインコンテンツ-->
