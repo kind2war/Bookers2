@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.page(params[:page]) #ページネーション機能
+    @books = Book.order("id DESC").page(params[:page]) #ページネーション機能
     @user = current_user
 
   end

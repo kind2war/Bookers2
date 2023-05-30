@@ -3,8 +3,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
-    @books = Book.page(params[:page]) #ページネーション機能
-    @books = @user.books
+    @books = @user.books.page(params[:page]) #ページネーション機能
     @book = Book.new
   end
 
