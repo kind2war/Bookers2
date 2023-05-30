@@ -1,12 +1,28 @@
-<h1>welcome to Bookers !!</h1>
-<p>In Bookers,</p>
+<head>
+<link rel="stylesheet" src="assets/stylesheets/homes.scss">
+</head>
 
-<p>you can share and exchange your opinions , inpressions , and emotions</p>
+<body>
+<div class="container">
+  <div class="mx-auto" style="width: 45%;">
+    <div class="row">
+      <h1>welcome to
+      <i class="fas fa-book"></i><strong>Bookers !!</strong></h1>
+      <p>In <i class="fas fa-book"></i>Bookers,</p>
 
-<p>about various books!</p>
+      <p>you can share and exchange your opinions , inpressions , and emotions</p>
 
-<%= link_to 'Log in', new_user_session_path %> </br>
-<%= link_to 'Sign up', new_user_registration_path %> </br>
+      <p>about various books!</p>
+    </div>
+    <div class = "col-12">
+      <div class ="row">
+        <div class = "col-md mx-auto">
+          <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary btn-block" %>
+          <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success btn-block"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 
-<%#= link_to 'Log in', user_session_url %> </br>
-<%#= link_to 'Sign in', new_user_registration_url %> </br>
