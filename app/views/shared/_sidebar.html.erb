@@ -24,14 +24,14 @@
       <div class="create">
         <!--フォームの実装および、フォームの入力エラー処理-->
         <%= form_with model: Book.new do |f| %> <!--具体的にモデル名を指名することで解決-->
-        <%= render partial: 'shared/erros_msg', locals: { book: @book } %> <!--こいつがうまく機能しない。-->
+        <%#= render partial: 'shared/erros_msg', locals: { book: @book } %> <!--こいつがうまく機能しない。-->
         <div>
           <%= f.label :Title %>
-          <%= f.text_field :title, placeholder:"本のタイトル"   %>
+          <%= f.text_field :title %> <!--placeholder:"本のタイトル"-->
         </div>
         <div>
           <%= f.label :Opinion %>
-          <%= f.text_area :opinion, placeholder:"感想など" %></br>
+          <%= f.text_area :opinion %> <!--placeholder:"感想など" --></br>
         </div>
           <%= f.submit 'Create Books'%>
       </div>

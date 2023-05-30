@@ -21,6 +21,7 @@ before_action :authenticate_user!, except: [:top, :about]
   def index
     @users = User.page(params[:page]) #ページネーション機能
     @user = current_user
+    @book = Book.new
   end
 
 private
