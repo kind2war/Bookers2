@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+before_action :authenticate_user!, except: [:top, :about]
+
 
   #投稿データの作成
   def new
@@ -13,13 +15,15 @@ class BooksController < ApplicationController
       flash[:notice]="Book was successfully created !"
       redirect_to books_path()
     else
-      render :new
+      flash[:notice]="Book was not successfully created !"
+      redirect_to books_path()
     end
   end
 
   def index
     @books = Book.order("id DESC").page(params[:page]) #ページネーション機能
     @user = current_user
+    @book = Book.new
 
   end
 
@@ -45,6 +49,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
+    flash[:notice] ="Book was successfully destroyed !"
     redirect_to '/books'
   end
 
