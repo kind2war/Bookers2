@@ -7,10 +7,12 @@
 <div class= "container px-5 px-sm-0">
 <div class = "row">
   <!--ｻｲﾄﾞﾊﾞｰ-->
-  <%= render "shared/sidebar" %>
+  <div class = "col-md-3">
+  <%= render partial: 'shared/sidebar', locals: { user: @user, book: @book, books: @books } %>
+  </div>
 
   <!--メインコンテンツ-->
-  <div class="col-md-8 offset-1 px-sm-15">
+  <div class="col-md-9"> <!--col-md-8 offset-1 px-sm-15-->
   <h2>Book detail</h2>
     <table class="table table-hover table-inverse">
       <thead>

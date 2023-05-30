@@ -1,21 +1,38 @@
+<div class="sidebar">
+  <div class="user_info">
+    <h2>User Info</h2>
+      <%= image_tag user.get_profile_image(100,100) %>  <!--ﾕｰｻﾞｰの画像-->
+      <table class="table">
+        <tbody><tr></tr>
+        <tr>
+      	  <th>name</th>
+      	  <th><%= user.name %></th>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <th><%= user.introduction %></th>
+        </tr>
+        </tbody>
+      </table>
+          <% if user.id == current_user.id %>
+            <p><%= link_to "プロフィール編集", edit_user_path(user.id)%></p>
+          <% end %>
+  </div>
 
-<div>
-  <h2>User Info</h2>
-    <%= image_tag user.get_profile_image(100,100) %>
-<!--    <#p>ﾕｰｻﾞｰの画像<#/p> -->
-    <table class="table">
-      <tbody><tr></tr>
-      <tr>
-    	  <th>name</th>
-    	  <th><%= user.name %></th>
-      </tr>
-      <tr>
-    	  <th>introduction</th>
-    	  <th><%= user.introduction %></th>
-      </tr>
-      </tbody>
-    </table>
-        <% if user.id == current_user.id %>
-          <p><%= link_to "プロフィール編集", edit_user_path(user.id)%></p>
+  <div class="new_book">
+    <h2>New Book</h2>
+      <div class="create">
+        <%= form_with model: book do |f| %>　<!--部分テンプレ化する上で、User#showで表示させるには一体どうしたら・・・-->
+        <div>
+          <%= f.label :Title %>
+          <%= f.text_field :title  %>
+        </div>
+        <div>
+          <%= f.label :Opinion %>
+          <%= f.text_area :opinion %></br>
+        </div>
+          <%= f.submit 'Create Books'%>
+      </div>
         <% end %>
+  </div>
 </div>
