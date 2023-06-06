@@ -23,39 +23,41 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+
+  <!-- Rspecでは、aタグを検索していたので、button_toではなく、link_toを採用。-->
               <% if user_signed_in? %>
 
-                <%= button_to user_path(current_user.id) , {method: :get, class: "btn nav-link"} do %>
+                <%= link_to user_path(current_user.id) , class: "btn nav-link" do %>
                 <i class="fas fa-home" style="color: #ffffff;"></i> Home
                 <% end %>
 
-                <%= button_to users_path, {method: :get, class: "btn nav-link"} do %>
+                <%= link_to users_path, class: "btn nav-link" do %>
                 <i class="fas fa-users" style="color: #ffffff;"></i> Users
                 <% end %>
 
-                <%= button_to books_path, {method: :get, class: "btn nav-link"} do %>
-                <i class="fas fa-book" style="color: #ffffff;"></i> Books
+                <%= link_to books_path, class: "btn nav-link" do %>
+                <i class="fas fa-book-open" style="color: #ffffff;"></i> Books
                 <% end %>
 
-                <%= button_to destroy_user_session_path, {method: :delete, class: "btn nav-link"} do %>
+                <%= link_to destroy_user_session_path, {method: :delete, class: "btn nav-link"} do %>
                 <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i> Log out
                 <% end %>
 
               <% else %>
 
-                <%= button_to '/' , {method: :get, class: "btn nav-link"} do %>
-                <i class="fas fa-home" style="color: #ffffff;"></i> Home
+                <%= link_to root_path, class: "btn nav-link" do %>
+                <i class="fas fa-home" style="color: #ffffff;"></i>Home
                 <% end %>
 
-                <%= button_to '/home/about', {method: :get, class: "btn nav-link"} do %>
+                <%= link_to '/home/about', class: "btn nav-link" do %>
                 <i class="fas fa-link" style="color: #ffffff;"></i> About
                 <% end %>
 
-                <%= button_to new_user_registration_path, {method: :get, class: "btn nav-link"} do %>
+                <%= link_to new_user_registration_path, class: "btn nav-link" do %>
                 <i class="fas fa-user-plus" style="color: #ffffff;"></i> Sign up
                 <% end %>
 
-                <%= button_to new_user_session_path, {method: :get, class: "btn nav-link"} do %>
+                <%= link_to new_user_session_path, class: "btn nav-link" do %>
                 <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i> Log in
                 <% end %>
               <% end %>

@@ -1,40 +1,36 @@
-<div class="sidebar">
-  <div class="user_info">
-    <h2>User Info</h2>
-      <%= image_tag user.get_profile_image(100,100) %>  <!--ﾕｰｻﾞｰの画像-->
-      <table class="table">
-        <tbody><tr></tr>
-        <tr>
-      	  <th>name</th>
-      	  <th><%= user.name %></th>
-        </tr>
-        <tr>
-      	  <th>introduction</th>
-      	  <th><%= user.introduction %></th>
-        </tr>
-        </tbody>
-      </table>
-          <% if user.id == current_user.id %>
-            <p><%= link_to "プロフィール編集", edit_user_path(user.id)%></p>
-          <% end %>
-  </div>
+<div class="user_info">
+  <h2>User Info</h2>
+    <%= image_tag user.get_profile_image(100,100) %>  <!--ﾕｰｻﾞｰの画像-->
+    <table class="table">
+      <tbody><tr></tr>
+      <tr>
+    	  <th>name</th>
+    	  <th><%= user.name %></th>
+      </tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th><%= user.introduction %></th>
+      </tr>
+      </tbody>
+    </table>
 
-  <div class="new_book">
-    <h2>New Book</h2>
-      <div class="create">
-        <!--フォームの実装および、フォームの入力エラー処理-->
-        <%= form_with model: Book.new do |f| %> <!--具体的にモデル名を指名することで解決-->
-        <%#= render partial: 'shared/erros_msg', locals: { book: @book } %> <!--こいつがうまく機能しない。-->
-        <div>
-          <%= f.label :Title %>
-          <%= f.text_field :title %> <!--placeholder:"本のタイトル"-->
-        </div>
-        <div>
-          <%= f.label :body %>
-          <%= f.text_area :body %> <!--placeholder:"感想など" --></br>
-        </div>
-          <%= f.submit 'Create Books'%>
-      </div>
+        <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
         <% end %>
-  </div>
+
+</div>
+
+<div class="new_book">
+  <h2>New book</h2>
+    <%= form_with model: book do |f| %>
+      <div>
+        <label for="inputTitle">Titel</label><br>
+        <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"タイトル"  %>
+      </div>
+      <div>
+        <label for="inputOpinion">Opinion</label><br>
+        <%= f.text_area :body, placeholder:"感想" %><br>
+        <%= f.submit 'Create Books', class: "btn btn-success"%>
+      </div>
+    <% end %>
 </div>

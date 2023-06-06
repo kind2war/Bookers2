@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 before_action :is_matching_login_user, only: [:edit, :update]
 before_action :authenticate_user!, except: [:top, :about]
 
+  def set_current_user
+    @current_user=User.find_by(id :session[:user_id])
+  end
+
+
   def show
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]) #ページネーション機能
@@ -14,8 +19,12 @@ before_action :authenticate_user!, except: [:top, :about]
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+       flash[:notice]="successfully updated !"
+       redirect_to user_path(@user.id)
+    else
+       render :edit
+    end
   end
 
   def index
@@ -30,9 +39,11 @@ private
   end
 
   def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to user_path(current_user.id)
+    @user = User.find(params[:id])
+    if @current_user==nil
+      redirect_to  new_user_session_path #ログイン画面へと直ったかな？
     end
+
   end
+
 end

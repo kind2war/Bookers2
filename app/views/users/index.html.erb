@@ -1,38 +1,40 @@
 <body>
 <div class= "container px-5 px-sm-0">
-<div class = "row w-100">
+  <%#= render partial: 'shared/errors_msg', locals: {book: @book} %>
+  <div class = "row">
   <!--ｻｲﾄﾞﾊﾞｰ-->
-  <div class = "col-md-3">
-    <%= render partial: 'shared/sidebar', locals: { user: @user, book: @book, books: @books } %>
-  </div>
+    <div class = "col-md-3">
+      <%= render partial: 'shared/sidebar', locals: { user: @user, book: @book, books: @books } %>
+    </div>
 
   <!--メインコンテンツ-->
-  <div class="col-md-9"> <!--col-md-8 offset-1 px-sm-15-->
+  <div class="col-md-8 offset-md-1">
     <div class="user_index">
-    <h2>Users</h2>
-      <table class="table table-hover table-inverse" width="100%;" >
-      <thead>
-          <tr>
-            <th width="10%">Image</th>
-            <th width="10%">Name</th>
-            <th width="70%">Introdution</th>
-            <th width="10%"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= image_tag user.get_profile_image(100,100) %></td>
-            <td><%= user.name %></td>
-            <td><%= user.introduction %></td>
-            <td><%= link_to 'Show', user_path(user.id) %></td>
-          </tr>
-          <% end %>
-          <%= paginate @users %>
-        </tbody>
-      </table>
-    </div>
+      <h2>Users</h2>
+        <table class="table table-hover table-inverse" width="100%;" >
+          <thead>
+            <tr>
+              <th width="10%">Image</th>
+              <th width="10%">Name</th>
+              <th width="70%">Introdution</th>
+              <th width="10%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100,100) %></td>
+              <td><%= user.name %></td>
+              <td><%= user.introduction %></td>
+              <td><%= link_to 'Show', user_path(user.id) %></td>
+            </tr>
+            <% end %>
+              <%= paginate @users %>
+          </tbody>
+        </table>
+      </div>
   </div>
-</div>
+
+  </div>
 </div>
 </body>
