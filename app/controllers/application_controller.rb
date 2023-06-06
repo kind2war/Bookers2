@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
+before_action :authenticate_user!, except: [:top, :about]
 
   def after_sign_in_path_for(resource) #サインイン後どこへ遷移するか設定できるメソッド
     mypage_path(resource)

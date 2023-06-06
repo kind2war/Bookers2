@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-before_action :authenticate_user!, except: [:top, :about]
+before_action :is_matching_login_user, only: [:edit, :update]
 
 
   #投稿データの作成
@@ -15,7 +15,7 @@ before_action :authenticate_user!, except: [:top, :about]
       flash[:notice]="Book was successfully created !"
       redirect_to @book
     else
-      render :new
+      redirect_to index
     end
   end
 
@@ -53,9 +53,16 @@ before_action :authenticate_user!, except: [:top, :about]
     redirect_to '/books'
   end
 
-  # 投稿データのストロングパラメータ
+
   private
-    def book_params
+    def book_params # 投稿データのストロングパラメータ
       params.require(:book).permit(:title, :body)
+    end
+
+    def is_matching_login_user
+      @book = Book.find(params[:id])
+      unless @book.user_id == current_user.id
+        redirect_to  "/books"
+      end
     end
 end

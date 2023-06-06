@@ -22,15 +22,26 @@
 
 <div class="new_book">
   <h2>New book</h2>
+    <% if book.errors.any? %>
+    <div class="alert alert-warning">
+    <%= book.errors.count %> errors prohibited this book from being saved:
+      <ul>
+        <% book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
     <%= form_with model: book do |f| %>
       <div>
         <label for="inputTitle">Titel</label><br>
-        <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"タイトル"  %>
+          <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
       </div>
       <div>
         <label for="inputOpinion">Opinion</label><br>
-        <%= f.text_area :body, placeholder:"感想" %><br>
-        <%= f.submit 'Create Books', class: "btn btn-success"%>
+          <%= f.text_area :body %><br>
+          <%= f.submit 'Create Books', class: "btn btn-success"%>
       </div>
     <% end %>
 </div>

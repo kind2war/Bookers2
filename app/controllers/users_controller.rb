@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 before_action :is_matching_login_user, only: [:edit, :update]
-before_action :authenticate_user!, except: [:top, :about]
 
   def set_current_user
     @current_user=User.find_by(id :session[:user_id])
@@ -35,15 +34,14 @@ before_action :authenticate_user!, except: [:top, :about]
 
 private
   def user_params
-    params.require(:user).permit(:name, :profile_image,:introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
   def is_matching_login_user
     @user = User.find(params[:id])
-    if @current_user==nil
+    unless @user == current_user
       redirect_to  new_user_session_path #ログイン画面へと直ったかな？
     end
-
   end
 
 end
