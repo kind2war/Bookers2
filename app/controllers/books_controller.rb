@@ -15,7 +15,9 @@ before_action :is_matching_login_user, only: [:edit, :update]
       flash[:notice]="Book was successfully created !"
       redirect_to @book
     else
-      redirect_to index
+      @books = Book.order("id DESC").page(params[:page])
+      @user = current_user
+      render :new
     end
   end
 
